@@ -32,7 +32,7 @@ export default function Header() {
         >
           <img src="/logo.png" alt="UniqCamp" className="h-11 w-auto object-contain md:h-12" />
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
           {navLinks.map(({ label, id }) => (
             <button
               key={id}
