@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const items = [
   {
     title: "Attendance Management",
@@ -37,28 +39,59 @@ const items = [
   },
 ];
 
+const container = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.1 } } };
+const card = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } };
+
 export default function FutureRoadmap() {
   return (
-    <section id="future" className="border-t border-border bg-card py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+    <section id="future" className="border-t border-primary/15 py-20 md:py-28" style={{ background: 'hsl(262 38% 98%)' }}>
+      <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex items-center justify-center gap-2 text-primary"
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+          <span className="text-xs font-semibold uppercase tracking-[0.2em]">Coming soon</span>
+        </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.05 }}
+          className="mt-2 text-center text-3xl font-extrabold tracking-tight text-foreground md:text-4xl"
+        >
           Future Roadmap
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.08 }}
+          className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground"
+        >
           Exciting enhancements coming soon to UniqCamp.
-        </p>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        </motion.p>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-40px" }}
+          className="mt-12 grid gap-5 sm:grid-cols-2"
+        >
           {items.map(({ title, description, icon }) => (
-            <div
+            <motion.div
               key={title}
-              className="rounded-2xl border border-border bg-background p-6 shadow-sm transition hover:shadow-md"
+              variants={card}
+              className="card-lower p-6 transition-shadow hover:shadow-md"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">{icon}</div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">{icon}</div>
               <h3 className="mt-4 font-semibold text-foreground">{title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

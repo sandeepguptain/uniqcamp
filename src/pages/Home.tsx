@@ -1,5 +1,6 @@
 import Hero from "../components/sections/Hero";
 import Stats from "../components/sections/Stats";
+import ImpactNumbers from "../components/sections/ImpactNumbers";
 import ComprehensiveSolutions from "../components/sections/ComprehensiveSolutions";
 import WhyChoose from "../components/sections/WhyChoose";
 import HowItWorks from "../components/sections/HowItWorks";
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <Hero />
       <Stats />
+      <ImpactNumbers />
       <ComprehensiveSolutions />
       <WhyChoose />
       <HowItWorks />

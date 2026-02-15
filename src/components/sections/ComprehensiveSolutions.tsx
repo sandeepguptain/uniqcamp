@@ -108,27 +108,67 @@ const roles = [
   },
 ];
 
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0 },
+};
+
 export default function ComprehensiveSolutions() {
   return (
-    <section id="solutions" className="relative overflow-hidden bg-slate-50/80 py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <p className="text-center text-sm font-medium uppercase tracking-widest text-primary">
-          Solutions
-        </p>
-        <h2 className="mt-2 text-center text-3xl font-bold tracking-tight text-foreground md:text-4xl lg:text-[2.5rem]">
+    <section id="solutions" className="relative overflow-hidden border-t border-primary/10 bg-background py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          className="flex items-center justify-center gap-2 text-primary"
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+          <span className="text-xs font-semibold uppercase tracking-[0.2em]">Solutions</span>
+        </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ delay: 0.05 }}
+          className="mt-2 text-center text-3xl font-extrabold tracking-tight text-foreground md:text-4xl"
+        >
           Comprehensive solutions for every role
-        </h2>
-        <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground md:text-base">
-          Dedicated portals and features for all stakeholders—seamless dismissal management.
-        </p>
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="mx-auto mt-4 max-w-xl text-center text-muted-foreground"
+        >
+          Dedicated portals and features for all stakeholders.
+        </motion.p>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-60px" }}
+          className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {roles.map((role) => (
-            <article
+            <motion.article
               key={role.id}
-              className="group relative rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 md:p-7"
+              variants={item}
+              className="card-accent group p-6 md:p-7"
             >
               <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-md shadow-primary/25 transition group-hover:scale-105">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary text-white">
                   {role.icon}
                 </div>
                 <h3 className="text-lg font-semibold tracking-tight text-foreground">
@@ -143,9 +183,9 @@ export default function ComprehensiveSolutions() {
                   </li>
                 ))}
               </ul>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

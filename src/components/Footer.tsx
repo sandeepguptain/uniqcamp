@@ -2,48 +2,56 @@ function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 }
 
+const linkClass = "text-sm text-white/80 hover:text-white transition-colors";
+
 export default function Footer() {
   return (
-    <footer className="bg-purple-dark text-white">
-      <div className="mx-auto max-w-6xl px-4 py-12 md:px-6 md:py-16">
-        <div className="grid gap-10 md:grid-cols-4">
+    <footer className="text-white" style={{ background: 'linear-gradient(180deg, hsl(262 55% 25%) 0%, hsl(262 48% 20%) 100%)' }}>
+      <div className="mx-auto max-w-6xl px-4 py-14 md:px-8 md:py-16">
+        <div className="grid gap-12 md:grid-cols-4 md:gap-8">
           <div className="md:col-span-1">
-            <button type="button" onClick={() => scrollTo("hero")} className="flex items-center gap-3 font-bold text-lg text-white focus:outline-none">
-              <img src="/logo.png" alt="UniqCamp" className="h-10 w-auto object-contain" />
+            <button
+              type="button"
+              onClick={() => scrollTo("hero")}
+              className="flex items-center focus:outline-none rounded-lg focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-purple-dark"
+            >
+              <img src="/logo.png" alt="UniqCamp" className="h-11 w-auto object-contain md:h-12" />
             </button>
-            <p className="mt-3 text-sm text-white/80">
-              Smart student dismissal and safety platform for schools. Efficiency, safety, and transparency in one place.
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
+              Smart student dismissal and safety platform. Efficiency, safety, and transparency in one place.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold text-white">Company</h4>
-            <ul className="mt-3 space-y-2">
-              <li><button type="button" onClick={() => scrollTo("hero")} className="text-sm text-white/80 hover:text-white text-left">About Us</button></li>
-              <li><button type="button" onClick={() => scrollTo("contact")} className="text-sm text-white/80 hover:text-white text-left">Careers</button></li>
-              <li><button type="button" onClick={() => scrollTo("contact")} className="text-sm text-white/80 hover:text-white text-left">Blog</button></li>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white/90">Company</h4>
+            <ul className="mt-4 space-y-3">
+              <li><button type="button" onClick={() => scrollTo("hero")} className={linkClass}>About Us</button></li>
+              <li><button type="button" onClick={() => scrollTo("contact")} className={linkClass}>Careers</button></li>
+              <li><button type="button" onClick={() => scrollTo("contact")} className={linkClass}>Blog</button></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-white">Solutions</h4>
-            <ul className="mt-3 space-y-2">
-              <li><button type="button" onClick={() => scrollTo("solutions")} className="text-sm text-white/80 hover:text-white text-left">Features</button></li>
-              <li><button type="button" onClick={() => scrollTo("contact")} className="text-sm text-white/80 hover:text-white text-left">Pricing</button></li>
-              <li><button type="button" onClick={() => scrollTo("solutions")} className="text-sm text-white/80 hover:text-white text-left">Integrations</button></li>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white/90">Solutions</h4>
+            <ul className="mt-4 space-y-3">
+              <li><button type="button" onClick={() => scrollTo("solutions")} className={linkClass}>Features</button></li>
+              <li><button type="button" onClick={() => scrollTo("contact")} className={linkClass}>Pricing</button></li>
+              <li><button type="button" onClick={() => scrollTo("solutions")} className={linkClass}>Integrations</button></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-white">Support</h4>
-            <ul className="mt-3 space-y-2">
-              <li><button type="button" onClick={() => scrollTo("contact")} className="text-sm text-white/80 hover:text-white text-left">Help Center</button></li>
-              <li><button type="button" onClick={() => scrollTo("contact")} className="text-sm text-white/80 hover:text-white text-left">Contact Us</button></li>
-              <li><button type="button" onClick={() => scrollTo("contact")} className="text-sm text-white/80 hover:text-white text-left">Privacy Policy</button></li>
-              <li><button type="button" onClick={() => scrollTo("contact")} className="text-sm text-white/80 hover:text-white text-left">Terms of Service</button></li>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white/90">Support</h4>
+            <ul className="mt-4 space-y-3">
+              <li><button type="button" onClick={() => scrollTo("contact")} className={linkClass}>Help Center</button></li>
+              <li><button type="button" onClick={() => scrollTo("contact")} className={linkClass}>Contact Us</button></li>
+              <li><button type="button" onClick={() => scrollTo("contact")} className={linkClass}>Privacy Policy</button></li>
+              <li><button type="button" onClick={() => scrollTo("contact")} className={linkClass}>Terms of Service</button></li>
             </ul>
           </div>
         </div>
-        <p className="mt-12 border-t border-white/20 pt-8 text-center text-sm text-white/70">
-          © {new Date().getFullYear()} UniqCamp. All rights reserved.
-        </p>
+        <div className="mt-14 pt-8 border-t border-white/10">
+          <p className="text-center text-sm text-white/60">
+            © {new Date().getFullYear()} UniqCamp. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
