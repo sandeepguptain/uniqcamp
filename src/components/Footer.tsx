@@ -18,7 +18,7 @@ export default function Footer() {
               onClick={() => setTimeout(() => scrollTo("hero"), 50)}
               className="flex items-center focus:outline-none rounded-lg focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-purple-dark"
             >
-              <img src="/logo.png" alt="UniqCamp" className="h-11 w-auto object-contain md:h-12" />
+              <img src="/favicon.svg" alt="UniqCamp" className="h-11 w-auto object-contain md:h-12" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
               Smart student dismissal and safety platform. Efficiency, safety, and transparency in one place.
