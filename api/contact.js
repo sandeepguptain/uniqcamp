@@ -1,4 +1,4 @@
-const nodemailer = require("nodemailer");
+import nodemailer from "nodemailer";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -92,7 +92,7 @@ The UniqCamp Team`;
   }
 }
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -125,4 +125,4 @@ module.exports = async function handler(req, res) {
     console.error("[Contact] Error:", err.message);
     return res.status(500).json({ ok: false, error: "Failed to send request" });
   }
-};
+}
