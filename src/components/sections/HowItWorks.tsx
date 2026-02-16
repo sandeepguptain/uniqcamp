@@ -3,19 +3,19 @@ import { motion } from "framer-motion";
 const steps = [
   {
     title: "Parent Requests Pickup",
-    description: "Parents initiate dismissal requests through the UniqCamp app, ensuring secure authorization.",
+    description: "Parents initiate dispersal requests through the UniqCamp app, ensuring secure authorization.",
   },
   {
     title: "Teacher/Staff Approval",
     description: "Teachers and designated staff approve requests, ensuring student readiness and safety.",
   },
   {
-    title: "Student Dismissal",
-    description: "Students are securely dismissed and checked out, with real-time updates for parents.",
+    title: "Student Dispersal",
+    description: "Students are securely dispersed and checked out, with real-time updates for parents.",
   },
   {
     title: "Daily Pickup Confirmation",
-    description: "Parents confirm student pickup, completing the seamless and secure dismissal cycle.",
+    description: "Parents confirm student pickup, completing the seamless and secure dispersal cycle.",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function HowItWorks() {
           transition={{ delay: 0.08 }}
           className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground"
         >
-          Our simple 4-step process ensures a smooth dismissal.
+          Our simple 4-step process ensures a smooth dispersal.
         </motion.p>
         <motion.div
           variants={container}

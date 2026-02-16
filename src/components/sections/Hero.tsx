@@ -11,7 +11,7 @@ export default function Hero() {
           className="flex items-center gap-2 text-primary"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-          <span className="text-xs font-semibold uppercase tracking-[0.25em]">Student Dismissal · Safety · Transparency</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.25em]">Student Dispersal · Safety · Transparency</span>
         </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -19,15 +19,23 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.08 }}
           className="mt-5 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          Streamline Student Dismissal with Smart Technology
+          Student Dispersal, Reimagined
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-5 max-w-xl text-lg text-muted-foreground"
+          className="mt-5 max-w-xl text-lg font-medium text-primary"
         >
-          UniqCamp brings efficiency, safety, and transparency to school dismissals. Connect parents, staff, and drivers in one seamless platform.
+          Safer. Smarter. Faster.
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.28 }}
+          className="mt-3 max-w-xl text-lg text-muted-foreground"
+        >
+          UniqCamp reimagines how students leave school—with one platform connecting parents, staff, and drivers for safer, faster dispersal every day.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 16 }}

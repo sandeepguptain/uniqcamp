@@ -21,7 +21,7 @@ export default function Footer() {
               <img src="/favicon.svg" alt="UniqCamp" className="h-11 w-auto object-contain md:h-12" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
-              Smart student dismissal and safety platform. Efficiency, safety, and transparency in one place.
+              Student dispersal, reimagined. Safer. Smarter. Faster. One platform for schools, parents, and staff.
             </p>
           </div>
           <div>

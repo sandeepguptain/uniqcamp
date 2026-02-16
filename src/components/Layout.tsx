@@ -12,7 +12,7 @@ export default function Layout() {
         Skip to main content
       </a>
       <Header />
-      <main id="main-content" className="flex-1" role="main" aria-label="UniqCamp school dismissal and safety platform content">
+      <main id="main-content" className="flex-1" role="main" aria-label="UniqCamp student dispersal platform content">
         <Outlet />
       </main>
       <Footer />

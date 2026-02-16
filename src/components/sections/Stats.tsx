@@ -6,7 +6,7 @@ const stats = [
   { value: "500+", label: "Schools" },
   { value: "50K+", label: "Students" },
   { value: "98%", label: "Parent Satisfaction" },
-  { value: "70%", label: "Reduction in Dismissal Time" },
+  { value: "70%", label: "Reduction in Dispersal Time" },
 ];
 
 function StatItem({ value, label, index }: { value: string; label: string; index: number }) {

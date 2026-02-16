@@ -29,8 +29,8 @@ const items = [
     ),
   },
   {
-    title: "Early Dismissal Requests",
-    description: "Advanced features for managing and approving early student dismissals.",
+    title: "Early Dispersal Requests",
+    description: "Advanced features for managing and approving early student dispersal.",
     icon: (
       <svg className="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -71,7 +71,7 @@ export default function FutureRoadmap() {
           transition={{ delay: 0.08 }}
           className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground"
         >
-          Exciting enhancements coming soon to UniqCamp.
+          Exciting enhancements for smarter dispersal, coming soon.
         </motion.p>
         <motion.div
           variants={container}

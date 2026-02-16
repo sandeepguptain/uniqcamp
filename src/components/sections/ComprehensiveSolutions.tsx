@@ -152,7 +152,7 @@ export default function ComprehensiveSolutions() {
           transition={{ delay: 0.1 }}
           className="mx-auto mt-4 max-w-xl text-center text-muted-foreground"
         >
-          Dedicated portals and features for all stakeholders.
+          Dedicated portals for dispersal—parents, teachers, principals, drivers, and TV display at the gate.
         </motion.p>
         <motion.div
           variants={container}

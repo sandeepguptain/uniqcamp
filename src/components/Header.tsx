@@ -6,7 +6,6 @@ const navLinks = [
   { label: "Solutions", id: "solutions" },
   { label: "Why Choose Us", id: "benefits" },
   { label: "How It Works", id: "how-it-works" },
-  { label: "Roadmap", id: "future" },
   { label: "Contact", id: "contact", isPage: true },
 ];
 

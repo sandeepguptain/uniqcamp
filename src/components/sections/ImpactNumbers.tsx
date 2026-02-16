@@ -5,7 +5,7 @@ import { useCountUp } from "../../hooks/useCountUp";
 const metrics = [
   { value: "2.5M+", label: "Pickups handled", sub: "Last 12 months" },
   { value: "99.9%", label: "Platform uptime", sub: "Reliable & secure" },
-  { value: "15", label: "Avg. seconds", sub: "Per dismissal checkout" },
+  { value: "15", label: "Avg. seconds", sub: "Per dispersal checkout" },
   { value: "24", label: "Support hours", sub: "Every day" },
 ];
 
@@ -50,7 +50,7 @@ export default function ImpactNumbers() {
           transition={{ delay: 0.05 }}
           className="mt-2 text-center text-2xl font-extrabold tracking-tight text-foreground md:text-3xl"
         >
-          Data that shows how UniqCamp is transforming school dismissals
+          Data that shows how UniqCamp is transforming school dispersal
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 8 }}
@@ -59,7 +59,7 @@ export default function ImpactNumbers() {
           transition={{ delay: 0.08 }}
           className="mx-auto mt-2 max-w-lg text-center text-muted-foreground"
         >
-          Key metrics from the platform.
+          Safer, smarter, faster dispersal—in numbers.
         </motion.p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {metrics.map((m, i) => (

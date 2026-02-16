@@ -19,7 +19,7 @@ export default function Contact() {
             Get in touch
           </h2>
           <p className="mt-3 max-w-xl text-muted-foreground">
-            Want to bring UniqCamp to your school or network? We'd love to show you how it works and tailor it to your needs.
+            Want safer, smarter dispersal at your school? We'd love to show you how UniqCamp works and tailor it to your needs.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
@@ -44,7 +44,7 @@ export default function Contact() {
             </motion.button>
           </div>
           <p className="mt-6 text-sm text-muted-foreground">
-            We provide demos, customisation for your school's workflow, and support so you can go live with confidence.
+            We provide demos, customisation for your school's dispersal workflow, and support so you can go live with confidence.
           </p>
         </motion.div>
       </div>

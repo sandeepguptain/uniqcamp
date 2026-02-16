@@ -5,10 +5,10 @@
 export const SITE_URL = import.meta.env.VITE_SITE_URL ?? "https://uniqcamp.com";
 
 export const SEO = {
-  title: "UniqCamp – School Dismissal & Student Safety Platform",
+  title: "UniqCamp – Student Dispersal Reimagined. Safer. Smarter. Faster.",
   description:
-    "UniqCamp streamlines student dismissal with smart technology. Efficiency, safety, and transparency for schools, parents, teachers, and drivers.",
+    "UniqCamp reimagines student dispersal from school. Safer, smarter, faster—one platform for schools, parents, and staff.",
   keywords:
-    "school dismissal, student safety, pickup management, early dismissal, school app, parent pickup, UniqCamp, student dismissal software, school safety platform",
+    "student dispersal, school dispersal, dispersal reimagined, student safety, pickup management, school app, parent pickup, UniqCamp, dispersal software, school safety platform",
   ogImage: "/logo.png",
 } as const;

@@ -97,7 +97,7 @@ export default function Contact() {
               Request a demo
             </h1>
             <p className="mt-3 text-muted-foreground">
-              Tell us about your school or network. We'll get back to you to schedule a demo and tailor UniqCamp to your needs.
+              Tell us about your school or network. We'll get back to you to schedule a demo and show you how UniqCamp can reimagine your student dispersal—safer, smarter, faster.
             </p>
 
             {status === "success" ? (

@@ -27,13 +27,11 @@ export default function Home() {
     <>
       <Hero />
       <Stats />
-      <ImpactNumbers />
       <ComprehensiveSolutions />
       <WhyChoose />
-      <HowItWorks />
-      <FutureRoadmap />
       <CtaBanner />
-      <Contact />
+      <HowItWorks />
+      <ImpactNumbers />
     </>
   );
 }
