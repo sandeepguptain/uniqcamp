@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const apiPort = import.meta.env.VITE_API_PORT ?? "3007";
 const CONTACT_ENDPOINT =
   (import.meta.env.VITE_CONTACT_FORM_ENDPOINT as string | undefined) ??
-  (import.meta.env.DEV ? `http://localhost:${apiPort}/api/contact` : undefined);
+  (import.meta.env.DEV ? `http://localhost:${apiPort}/api/contact` : "/api/contact");
 const CONTACT_EMAIL = "in.bebigupta@gmail.com";
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
