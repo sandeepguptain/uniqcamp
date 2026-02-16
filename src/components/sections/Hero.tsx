@@ -1,9 +1,85 @@
 import { motion } from "framer-motion";
 
+function HeroGraphics() {
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+      {/* Floating orbs */}
+      <motion.div
+        className="absolute -right-20 -top-20 h-80 w-80 rounded-full opacity-30"
+        style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)" }}
+        animate={{ scale: [1, 1.15, 1], opacity: [0.25, 0.35, 0.25] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute right-[15%] top-[20%] h-48 w-48 rounded-full opacity-20"
+        style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)" }}
+        animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-[15%] right-[25%] h-64 w-64 rounded-full opacity-[0.12]"
+        style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 65%)" }}
+        animate={{ scale: [1, 1.1, 1] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+      />
+      {/* Dispersal flow path - abstract path from gate to home */}
+      <svg className="absolute right-0 top-1/2 h-[320px] w-[320px] -translate-y-1/2 md:right-[5%] md:w-[400px]" viewBox="0 0 200 200" fill="none">
+        <motion.path
+          d="M 20 100 Q 60 40, 100 60 T 180 100"
+          stroke="hsl(var(--primary) / 0.25)"
+          strokeWidth="2"
+          strokeLinecap="round"
+          fill="none"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0.5 }}
+        />
+        <motion.circle cx="20" cy="100" r="6" fill="hsl(var(--primary) / 0.4)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.8, type: "spring", stiffness: 200 }} />
+        <motion.circle cx="100" cy="60" r="6" fill="hsl(var(--primary) / 0.35)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1, type: "spring", stiffness: 200 }} />
+        <motion.circle cx="180" cy="100" r="8" fill="hsl(var(--accent) / 0.5)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.2, type: "spring", stiffness: 200 }} />
+      </svg>
+      {/* Geometric shapes */}
+      <motion.div
+        className="absolute right-[40%] top-[25%] h-24 w-24 rotate-12 rounded-2xl border-2 border-primary/20 bg-primary/[0.06]"
+        initial={{ opacity: 0, rotate: 0 }}
+        animate={{ opacity: 1, rotate: 12 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
+      />
+      <motion.div
+        className="absolute bottom-[30%] right-[12%] h-16 w-16 rounded-full border-2 border-primary/25 bg-primary/[0.08]"
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.9, type: "spring", stiffness: 180 }}
+      />
+      <motion.div
+        className="absolute right-[8%] top-[35%] h-20 w-20 rounded-3xl border-2 border-primary/15 bg-secondary/80 backdrop-blur-sm"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.7, duration: 0.5 }}
+      />
+      {/* Small accent dots */}
+      {[0, 1, 2, 3, 4].map((i) => (
+        <motion.span
+          key={i}
+          className="absolute h-2 w-2 rounded-full bg-primary/30"
+          style={{
+            right: `${18 + i * 8}%`,
+            top: `${25 + (i % 3) * 22}%`,
+          }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1 + i * 0.1, type: "spring", stiffness: 200 }}
+        />
+      ))}
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
     <section id="hero" className="relative overflow-hidden bg-background gradient-mesh py-24 md:py-32 lg:py-40">
-      <div className="relative mx-auto max-w-4xl px-4 md:px-8">
+      <HeroGraphics />
+      <div className="relative z-10 mx-auto max-w-4xl px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}

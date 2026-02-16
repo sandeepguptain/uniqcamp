@@ -46,8 +46,8 @@ export default function Header() {
               <Link
                 key={item.id}
                 to="/contact"
-                className={`relative pb-1 text-sm font-medium transition-colors hover:text-primary after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full ${location.pathname === "/contact" ? "text-primary after:w-full" : "text-foreground/70"}`}
-              >
+                className="rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                >
                 {item.label}
               </Link>
             ) : (
@@ -85,8 +85,8 @@ export default function Header() {
                 key={item.id}
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="py-3 text-left text-sm font-medium text-muted-foreground hover:text-foreground border-b border-border last:border-0"
-              >
+                className="rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                >
                 {item.label}
               </Link>
             ) : (
