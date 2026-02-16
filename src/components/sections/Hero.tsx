@@ -22,22 +22,7 @@ function HeroGraphics() {
         animate={{ scale: [1, 1.1, 1] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
-      {/* Dispersal flow path - abstract path from gate to home */}
-      <svg className="absolute right-0 top-1/2 h-[320px] w-[320px] -translate-y-1/2 md:right-[5%] md:w-[400px]" viewBox="0 0 200 200" fill="none">
-        <motion.path
-          d="M 20 100 Q 60 40, 100 60 T 180 100"
-          stroke="hsl(var(--primary) / 0.25)"
-          strokeWidth="2"
-          strokeLinecap="round"
-          fill="none"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
-        />
-        <motion.circle cx="20" cy="100" r="6" fill="hsl(var(--primary) / 0.4)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.8, type: "spring", stiffness: 200 }} />
-        <motion.circle cx="100" cy="60" r="6" fill="hsl(var(--primary) / 0.35)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1, type: "spring", stiffness: 200 }} />
-        <motion.circle cx="180" cy="100" r="8" fill="hsl(var(--accent) / 0.5)" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.2, type: "spring", stiffness: 200 }} />
-      </svg>
+      
       {/* Geometric shapes */}
       <motion.div
         className="absolute right-[40%] top-[25%] h-24 w-24 rotate-12 rounded-2xl border-2 border-primary/20 bg-primary/[0.06]"
