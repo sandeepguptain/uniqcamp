@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const navLinks = [
   { label: "Home", id: "hero" },
@@ -7,7 +7,7 @@ const navLinks = [
   { label: "Why Choose Us", id: "benefits" },
   { label: "How It Works", id: "how-it-works" },
   { label: "Roadmap", id: "future" },
-  { label: "Contact", id: "contact" },
+  { label: "Contact", id: "contact", isPage: true },
 ];
 
 function scrollToSection(id: string) {
@@ -16,9 +16,18 @@ function scrollToSection(id: string) {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === "/";
 
-  const handleNavClick = (id: string) => {
-    scrollToSection(id);
+  const handleNavClick = (item: (typeof navLinks)[number]) => {
+    if ("isPage" in item && item.isPage) {
+      navigate("/contact");
+    } else if (isHome) {
+      scrollToSection(item.id);
+    } else {
+      navigate("/", { state: { scrollTo: item.id } });
+    }
     setOpen(false);
   };
 
@@ -27,22 +36,32 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-8 md:py-4">
         <Link
           to="/"
-          onClick={() => setTimeout(() => scrollToSection("hero"), 50)}
+          onClick={() => isHome && setTimeout(() => scrollToSection("hero"), 50)}
           className="flex items-center focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2 rounded-md"
         >
           <img src="/logo.png" alt="UniqCamp" className="h-11 w-auto object-contain md:h-12" />
         </Link>
         <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
-          {navLinks.map(({ label, id }) => (
-            <button
-              key={id}
-              type="button"
-              onClick={() => handleNavClick(id)}
-              className="relative pb-1 text-sm font-medium text-foreground/70 transition-colors hover:text-primary after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
-            >
-              {label}
-            </button>
-          ))}
+          {navLinks.map((item) =>
+            item.isPage ? (
+              <Link
+                key={item.id}
+                to="/contact"
+                className={`relative pb-1 text-sm font-medium transition-colors hover:text-primary after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full ${location.pathname === "/contact" ? "text-primary after:w-full" : "text-foreground/70"}`}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => handleNavClick(item)}
+                className="relative pb-1 text-sm font-medium text-foreground/70 transition-colors hover:text-primary after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+              >
+                {item.label}
+              </button>
+            )
+          )}
         </nav>
         <button
           type="button"
@@ -61,16 +80,27 @@ export default function Header() {
       </div>
       {open && (
         <div className="md:hidden border-t border-border bg-card px-4 py-3 flex flex-col gap-0">
-          {navLinks.map(({ label, id }) => (
-            <button
-              key={id}
-              type="button"
-              onClick={() => handleNavClick(id)}
-              className="py-3 text-left text-sm font-medium text-muted-foreground hover:text-foreground border-b border-border last:border-0"
-            >
-              {label}
-            </button>
-          ))}
+          {navLinks.map((item) =>
+            item.isPage ? (
+              <Link
+                key={item.id}
+                to="/contact"
+                onClick={() => setOpen(false)}
+                className="py-3 text-left text-sm font-medium text-muted-foreground hover:text-foreground border-b border-border last:border-0"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => handleNavClick(item)}
+                className="py-3 text-left text-sm font-medium text-muted-foreground hover:text-foreground border-b border-border last:border-0"
+              >
+                {item.label}
+              </button>
+            )
+          )}
         </div>
       )}
     </header>
