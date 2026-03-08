@@ -9,6 +9,11 @@ const navLinks = [
   { label: "Contact", id: "contact", isPage: true },
 ];
 
+const loginLinks = [
+  { label: "School Login", href: "https://school.uniqcamp.com/" },
+  { label: "Parent Login", href: "https://parent.uniqcamp.com/" },
+];
+
 function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 }
@@ -36,18 +41,18 @@ export default function Header() {
         <Link
           to="/"
           onClick={() => isHome && setTimeout(() => scrollToSection("hero"), 50)}
-          className="flex items-center focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2 rounded-md"
+          className="flex items-center rounded-md focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2"
         >
           <img src="/logo.png" alt="UniqCamp" className="h-11 w-auto object-contain md:h-12" />
         </Link>
-        <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
+        <nav className="hidden items-center gap-4 md:flex" aria-label="Main navigation">
           {navLinks.map((item) =>
             item.isPage ? (
               <Link
                 key={item.id}
                 to="/contact"
-                className="rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                >
+                className="relative pb-1 text-sm font-medium text-foreground/70 transition-colors hover:text-primary after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+              >
                 {item.label}
               </Link>
             ) : (
@@ -61,10 +66,21 @@ export default function Header() {
               </button>
             )
           )}
+          {loginLinks.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-primary/20 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
         <button
           type="button"
-          className="md:hidden p-2 rounded-md text-muted-foreground hover:bg-muted hover:text-foreground"
+          className="rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground md:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -78,7 +94,7 @@ export default function Header() {
         </button>
       </div>
       {open && (
-        <div className="md:hidden border-t border-border bg-card px-4 py-3 flex flex-col gap-0">
+        <div className="flex flex-col gap-0 border-t border-border bg-card px-4 py-3 md:hidden">
           {navLinks.map((item) =>
             item.isPage ? (
               <Link
@@ -86,7 +102,7 @@ export default function Header() {
                 to="/contact"
                 onClick={() => setOpen(false)}
                 className="rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                >
+              >
                 {item.label}
               </Link>
             ) : (
@@ -94,12 +110,24 @@ export default function Header() {
                 key={item.id}
                 type="button"
                 onClick={() => handleNavClick(item)}
-                className="py-3 text-left text-sm font-medium text-muted-foreground hover:text-foreground border-b border-border last:border-0"
+                className="border-b border-border py-3 text-left text-sm font-medium text-muted-foreground hover:text-foreground last:border-0"
               >
                 {item.label}
               </button>
             )
           )}
+          {loginLinks.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setOpen(false)}
+              className="border-b border-border py-3 text-left text-sm font-semibold text-primary last:border-0"
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
       )}
     </header>
