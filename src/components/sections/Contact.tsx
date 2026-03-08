@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { trackClick } from "../../analytics";
 
 export default function Contact() {
   return (
@@ -25,6 +26,7 @@ export default function Contact() {
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Link
                 to="/contact"
+                onClick={() => trackClick("home_contact_us", "/contact")}
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -37,7 +39,10 @@ export default function Contact() {
               type="button"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => {
+                trackClick("home_see_solutions", "#solutions");
+                document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" });
+              }}
               className="rounded-full border-2 border-primary bg-transparent px-6 py-3 font-semibold text-primary hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2"
             >
               See Solutions

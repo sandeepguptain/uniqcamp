@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { trackClick, trackOutboundLink } from "../analytics";
 
 const navLinks = [
   { label: "Home", id: "hero" },
@@ -26,10 +27,13 @@ export default function Header() {
 
   const handleNavClick = (item: (typeof navLinks)[number]) => {
     if ("isPage" in item && item.isPage) {
+      trackClick("nav_contact", "/contact");
       navigate("/contact");
     } else if (isHome) {
+      trackClick(`nav_${item.id}`, `#${item.id}`);
       scrollToSection(item.id);
     } else {
+      trackClick(`nav_${item.id}`, `/#${item.id}`);
       navigate("/", { state: { scrollTo: item.id } });
     }
     setOpen(false);
@@ -51,6 +55,7 @@ export default function Header() {
               <Link
                 key={item.id}
                 to="/contact"
+                onClick={() => trackClick("nav_contact", "/contact")}
                 className="relative pb-1 text-sm font-medium text-foreground/70 transition-colors hover:text-primary after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
               >
                 {item.label}
@@ -72,6 +77,7 @@ export default function Header() {
               href={item.href}
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackOutboundLink(item.href, item.label)}
               className="rounded-full border border-primary/20 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             >
               {item.label}
@@ -122,7 +128,10 @@ export default function Header() {
               href={item.href}
               target="_blank"
               rel="noreferrer"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                trackOutboundLink(item.href, item.label);
+                setOpen(false);
+              }}
               className="border-b border-border py-3 text-left text-sm font-semibold text-primary last:border-0"
             >
               {item.label}

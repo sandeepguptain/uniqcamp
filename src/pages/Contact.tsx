@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { trackFormSubmit } from "../analytics";
 
 const apiPort = import.meta.env.VITE_API_PORT ?? "3007";
 const CONTACT_ENDPOINT =
@@ -67,14 +68,17 @@ export default function Contact() {
         });
         if (!res.ok) throw new Error("Submit failed");
         setForm({ name: "", email: "", school: "", phone: "", message: "" });
+        trackFormSubmit("demo_request", true);
       } else {
         const subject = encodeURIComponent(`UniqCamp demo request – ${form.name} (${form.school})`);
         const body = buildMailtoBody(form);
         window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
         setUsedMailto(true);
+        trackFormSubmit("demo_request", true);
       }
       setStatus("success");
     } catch {
+      trackFormSubmit("demo_request", false);
       setStatus("error");
     }
   };

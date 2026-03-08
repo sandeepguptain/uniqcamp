@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { trackClick } from "../../analytics";
 
 function HeroGraphics() {
   return (
@@ -108,7 +109,10 @@ export default function Hero() {
             type="button"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => {
+              trackClick("hero_request_demo", "#contact");
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
             className="rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           >
             Request a Demo
@@ -117,7 +121,10 @@ export default function Hero() {
             type="button"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => {
+              trackClick("hero_learn_more", "#solutions");
+              document.getElementById("solutions")?.scrollIntoView({ behavior: "smooth" });
+            }}
             className="rounded-full border-2 border-primary/50 bg-primary/5 px-6 py-3.5 font-semibold text-primary hover:border-primary hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2"
           >
             Learn More
